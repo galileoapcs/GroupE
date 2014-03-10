@@ -1,3 +1,5 @@
+//Put this in a Java file, not the README!
+
  public Jumper(int length)
     {
         steps = 0;
