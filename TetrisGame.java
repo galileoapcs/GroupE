@@ -8,7 +8,7 @@ import java.awt.Color;
  * The GUI is the standard for GridWorld.
  * It will compile and execute after class TetrisBug is written
  * ...see Question 0
- */
+ */ 
 public class TetrisGame {
 
 	/**
