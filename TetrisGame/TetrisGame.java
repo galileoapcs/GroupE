@@ -47,7 +47,7 @@ public class TetrisGame {
 		.addKeyEventDispatcher(new java.awt.KeyEventDispatcher() {
 			public boolean dispatchKeyEvent(java.awt.event.KeyEvent event) {
 				String key = javax.swing.KeyStroke.getKeyStrokeForEvent(event).toString();
-				
+
 				if (key.equals("pressed UP"))
 					currentBlock.rotate();
 				if (key.equals("pressed RIGHT"))
@@ -96,14 +96,47 @@ public class TetrisGame {
 	 * and ask each actor located above the just deleted row to act and
 	 * update the score++
 	 */
+
 	public static void removeCompleteRows() {
 		Grid<Actor> gr = world.getGrid();
+		for (int i=18;i>0;i--)
+		{
+			if(isFullRow(i) == true)
+			{
+				for(int z = 1; z < 11; z++)
+				{
+					gr.remove(new Location(i,z)) ;
 
-		//Your code goes here ... see Question 2
-		
+
+				}
+				for (int h = i; h >0; h--) {
+
+
+					for(int gliu = 1; gliu < 11; gliu++) {
+						if (gr.get(new Location (h, gliu)) != null) {
+							gr.get(new Location(h,gliu) ).moveTo(new Location (h+1,gliu) );
+						}
+					}
+
+				}
+				i++;
+				score++;
+
+			}
+		}
+	}
+	public static boolean isFullRow(int i)
+	{
+		Grid<Actor> gr = world.getGrid();
+		for(int x = 1; x<11; x++)
+		{
+			if((gr.get(new Location(i,x))==null))
+			{
+				return false;
+			}
+		}
+		return true;
 
 	}
-	
-
 
 }
