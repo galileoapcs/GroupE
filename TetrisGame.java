@@ -8,7 +8,7 @@ import java.awt.Color;
  * The GUI is the standard for GridWorld.
  * It will compile and execute after class TetrisBug is written
  * ...see Question 0
- */ 
+ */
 public class TetrisGame {
 
 	/**
@@ -42,6 +42,7 @@ public class TetrisGame {
 			world.add(new Location(i,0),new Rock());
 		}
 		nextTetrisBlock();
+		
 		//needed code for keyboard event handling
 		java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager()
 		.addKeyEventDispatcher(new java.awt.KeyEventDispatcher() {
@@ -61,7 +62,7 @@ public class TetrisGame {
 			}
 		});
 		world.show();
-
+		
 	}
 
 	/**
@@ -89,6 +90,7 @@ public class TetrisGame {
 		// randomBlock = new TetrisBlock_Z();
 
 		currentBlock = randomBlock;
+		world.setMessage(""+ score);
 	}
 	/**
 	 * checks each row 1 through 18 (skip row 0) for full rows
